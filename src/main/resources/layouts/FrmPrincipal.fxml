@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="521.0" maxWidth="731.0" minHeight="125.0" minWidth="450.0" prefHeight="521.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.softdigital.fluig.controllers.PrincipalController">
+   <children>
+      <TabPane layoutX="181.0" layoutY="198.0" prefHeight="323.0" prefWidth="550.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="198.0">
+        <tabs>
+          <Tab text="Usuários">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="295.0" prefWidth="583.0">
+                     <children>
+                        <Button fx:id="btnListarUsuarios" layoutX="240.0" layoutY="14.0" mnemonicParsing="false" onAction="#listarUsers" text="Atualizar Lista" AnchorPane.rightAnchor="253.0" AnchorPane.topAnchor="14.0" />
+                        <Button layoutX="494.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnGerarCSVAction" text="Salvar Lista" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+                        <TableView fx:id="tbUsers" layoutX="14.0" layoutY="42.0" prefHeight="290.0" prefWidth="583.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0" />
+                        <Button fx:id="btnCadastrarAtualizarUserCSV" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCadastrarAtualizarUserCSVAction" text="Cadastrar/Atualizar via CSV" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Grupos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Button layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onAction="#showDatasetAction" prefHeight="25.0" prefWidth="116.0" text="Consultar Dataset" />
+      <Button layoutX="11.0" layoutY="46.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Download Projeto" />
+      <Button layoutX="11.0" layoutY="77.0" mnemonicParsing="false" onAction="#showCredentialAction" prefHeight="25.0" prefWidth="116.0" text="Cadastrar Usuários" />
+      <Button layoutX="11.0" layoutY="109.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Cadastrar Grupos" />
+   </children>
+</AnchorPane>

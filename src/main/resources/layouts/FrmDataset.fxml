@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.softdigital.fluig.controllers.DatasetController">
+   <children>
+      <TabPane layoutX="13.0" layoutY="62.0" prefHeight="360.0" prefWidth="590.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="62.0">
+        <tabs>
+          <Tab fx:id="tabDados" onSelectionChanged="#viewSelectionChanged" text="Dados (View)">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tvDados" layoutX="27.0" layoutY="34.0" prefHeight="297.0" prefWidth="590.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" />
+                        <Button layoutX="497.0" layoutY="14.0" mnemonicParsing="false" onAction="#exportDatasetInCSVAction" text="Exportar CSV" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Restrições (Contraints)">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="6.0" text="Campo" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                        <TextField fx:id="tfConstraintCampo" layoutX="14.0" layoutY="30.0" prefHeight="25.0" prefWidth="100.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="25.0" />
+                        <Button layoutX="109.0" layoutY="25.0" mnemonicParsing="false" onAction="#showConstraintFieldSearchAction" prefHeight="25.0" prefWidth="28.0" text="Button" />
+                        <Label layoutX="148.0" layoutY="5.0" text="Valor Inicial" AnchorPane.topAnchor="5.0" />
+                        <TextField fx:id="tfConstraintInicial" layoutX="148.0" layoutY="25.0" prefHeight="25.0" prefWidth="100.0" AnchorPane.topAnchor="25.0" />
+                        <Label layoutX="259.0" layoutY="5.0" text="Valor Final" AnchorPane.topAnchor="5.0" />
+                        <TextField fx:id="tfConstraintFinal" layoutX="259.0" layoutY="25.0" prefHeight="25.0" prefWidth="100.0" AnchorPane.topAnchor="25.0" />
+                        <Label layoutX="369.0" layoutY="5.0" text="Tipo" AnchorPane.topAnchor="5.0" />
+                        <ComboBox fx:id="cbConstraintTipo" layoutX="369.0" layoutY="25.0" prefHeight="25.0" prefWidth="80.0" AnchorPane.topAnchor="25.0" />
+                        <CheckBox fx:id="cbContraintLike" layoutX="462.0" layoutY="29.0" mnemonicParsing="false" text="Like" />
+                        <Button fx:id="btnConstraintAdicionar" layoutX="515.0" layoutY="25.0" mnemonicParsing="false" onAction="#addContraintAction" text="Adicionar" />
+                        <TableView fx:id="tvContraints" layoutX="14.0" layoutY="89.0" onKeyPressed="#contraintKeyPressed" prefHeight="274.0" prefWidth="590.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Campos (Fields)">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <ListView fx:id="lvCampos" layoutX="-64.0" layoutY="-16.0" onMouseClicked="#fieldsMouseClicked" prefHeight="331.0" prefWidth="263.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                                    <Label layoutX="14.0" layoutY="6.0" text="Campos" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <ListView fx:id="lvCamposSelecionados" layoutX="-5.0" layoutY="-1.0" onKeyPressed="#fieldsSelectedKeyPressed" prefHeight="324.0" prefWidth="415.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                                    <Label layoutX="14.0" layoutY="6.0" text="Campos Selecionados" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Classificação (sortFields)">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5" layoutX="56.0" layoutY="46.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <ListView fx:id="lvSortCampos" layoutX="14.0" layoutY="22.0" onMouseClicked="#sortFieldsMouseClicked" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                                    <Label layoutX="7.0" layoutY="6.0" text="Campos" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <ListView fx:id="lvSortCamposSelecionados" layoutX="45.0" layoutY="20.0" onKeyPressed="#sortFieldsSelectedKeyPressed" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                                    <Label layoutX="20.0" layoutY="6.0" text="Campos Selecionados" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <TextField fx:id="tfDatasetNome" layoutX="173.0" layoutY="27.0" prefHeight="25.0" prefWidth="169.0" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="25.0" />
+      <Button layoutX="351.0" layoutY="25.0" mnemonicParsing="false" onAction="#showSearchDatasetAction" prefHeight="25.0" prefWidth="56.0" text="Buscar" />
+      <Label layoutX="173.0" layoutY="5.0" text="Nome do dataset" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="5.0" />
+      <Label layoutX="14.0" layoutY="6.0" text="Servidor" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+      <ComboBox fx:id="cbServidor" layoutX="5.0" layoutY="27.0" prefWidth="150.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="25.0" />
+      <Button fx:id="btnAtualizar" layoutX="416.0" layoutY="25.0" mnemonicParsing="false" onAction="#updateDatasetInformationAction" text="Atualizar" />
+   </children>
+</AnchorPane>

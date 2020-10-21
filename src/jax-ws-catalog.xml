@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://hlbpretst.fluig.com/webdesk/ECMDatasetService?wsdl" uri="wsdl/hlbpretst.fluig.com/webdesk/ECMDatasetService.wsdl"/>
+    <system systemId="http://hlbpretst.fluig.com/webdesk/ECMColleagueService?wsdl" uri="wsdl/hlbpretst.fluig.com/webdesk/ECMColleagueService.wsdl"/>
+</catalog>

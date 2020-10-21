@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.softdigital.fluig.controllers.DatasetNameSearchController">
+   <children>
+      <ListView fx:id="viewDatasetName" layoutX="14.0" layoutY="65.0" onMouseClicked="#datasetNameMouseClicked" prefHeight="245.0" prefWidth="490.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0" />
+      <TextField fx:id="searchDatasetName" layoutX="10.0" layoutY="10.0" onKeyReleased="#searchDatasetKeyReleased" prefHeight="30.0" prefWidth="490.0" promptText="Digite o nome do dataset" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0" />
+   </children>
+</AnchorPane>
