@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.com.softdigital.fluig.services.exception.ExceptionDialog;
+import javafx.scene.control.Alert;
 import org.apache.log4j.Logger;
 
 import com.totvs.technology.ecm.foundation.ws.ColleagueDto;
@@ -43,6 +45,8 @@ public class PrincipalController implements Initializable {
 
     @FXML
     private TableView<ColleagueDto> tbUsers;
+
+    private boolean isshowCredential = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -141,6 +145,17 @@ public class PrincipalController implements Initializable {
 
     public void showCredentialAction() {
         try {
+            if (isshowCredential) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Falha");
+                alert.setHeaderText("A janela de credenciais ja esta aberta");
+                alert.setContentText("Mais detalhes");
+                alert.show();
+                return;
+            }
+
+            isshowCredential = true;
+
             Parent parent = FXMLLoader.load(PrincipalController.class.getResource("/layouts/FrmCredential.fxml"));
             Scene scene = new Scene(parent);
 
@@ -149,7 +164,9 @@ public class PrincipalController implements Initializable {
             stage.setTitle("Cadastro de servidores");
             stage.getIcons().add(new Image("/images/fluig-icon-brand.png"));
             stage.setScene(scene);
-            stage.show();
+            stage.showAndWait();
+
+            isshowCredential = false;
         } catch (IOException ex) {
             java.util.logging.Logger.getLogger(PrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }

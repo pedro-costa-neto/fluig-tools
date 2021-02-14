@@ -4,6 +4,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 
 import com.totvs.technology.ecm.foundation.ws.ColleagueDto;
@@ -76,6 +78,19 @@ public class CredentialController implements Initializable {
 
         clearFields();
         credentialsUpdate();
+    }
+
+    public void mouseClicked(MouseEvent mouseEvent) {
+        if (mouseEvent.getClickCount() >= 2) {
+            int indice = credentials.getSelectionModel().getSelectedIndex();
+            Credential credential = credentials.getItems().get(indice);
+
+            urlFluig.setText(credential.getUrl());
+            userLogin.setText(credential.getUserName());
+            userPassword.setText(credential.getPassword());
+            companyDescription.setText(credential.getCompanyName());
+            production.setSelected(credential.isEnvironment());
+        }
     }
 
     private Credential validateDataAuthentication() {

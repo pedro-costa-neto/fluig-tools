@@ -1,5 +1,6 @@
 package br.com.softdigital.fluig;
 
+import javafx.stage.StageStyle;
 import org.apache.log4j.Logger;
 
 import javafx.application.Application;
@@ -34,6 +35,7 @@ public class FluigApplication extends Application {
         stage.setScene(scene);
         stage.setTitle("Fluig - Pincipal");
         stage.setResizable(false);
+        stage.initStyle(StageStyle.UTILITY);
         stage.getIcons().add(new Image("/images/fluig-icon-brand.png"));
         stage.show();
     }
