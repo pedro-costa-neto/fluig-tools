@@ -351,7 +351,7 @@
   </wsdl:binding>
   <wsdl:service name="ECMDatasetServiceService">
     <wsdl:port binding="tns:ECMDatasetServiceServiceSoapBinding" name="DatasetServicePort">
-      <soap:address location="http://hlbpretst.fluig.com/webdesk/ECMDatasetService"/>
+      <soap:address location="https://hlbpretst.fluig.com/webdesk/ECMDatasetService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

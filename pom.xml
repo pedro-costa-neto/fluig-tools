@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--suppress ALL -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -14,33 +15,33 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>15</version>
+            <version>11</version>
         </dependency>
 
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
-            <version>15</version>
+            <version>11</version>
         </dependency>
             
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>15</version>
+            <version>11</version>
         </dependency>
 
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-media</artifactId>
-            <version>15</version>
+            <version>11</version>
         </dependency>
 
         <dependency>
@@ -75,9 +76,9 @@
             <version>1.2.17</version>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.metro</groupId>
-            <artifactId>webservices-rt</artifactId>
-            <version>2.3</version>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>3.0.0</version>
         </dependency>
     </dependencies>
 
@@ -91,10 +92,6 @@
             <resource>
                 <targetPath>META-INF</targetPath>
                 <directory>src</directory>
-                <includes>
-                    <include>jax-ws-catalog.xml</include>
-                    <include>wsdl/**</include>
-                </includes>
             </resource>
         </resources>
 
@@ -114,9 +111,9 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.jvnet.jax-ws-commons</groupId>
+                <groupId>com.sun.xml.ws</groupId>
                 <artifactId>jaxws-maven-plugin</artifactId>
-                <version>2.3</version>
+                <version>3.0.0</version>
                 <executions>
                     <execution>
                         <goals>
@@ -130,7 +127,7 @@
                             <vmArgs>
                                 <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
                             </vmArgs>
-                            <wsdlLocation>http://hlbpretst.fluig.com/webdesk/ECMDatasetService?wsdl</wsdlLocation>
+                            <wsdlDirectory>${basedir}/src/wsdl</wsdlDirectory>
                             <staleFile>${project.build.directory}/jaxws/stale/ECMDatasetService.stale</staleFile>
                         </configuration>
                         <id>wsimport-generate-ECMDatasetService</id>
@@ -148,27 +145,26 @@
                             <vmArgs>
                                 <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
                             </vmArgs>
-                            <wsdlLocation>http://hlbpretst.fluig.com/webdesk/ECMColleagueService?wsdl</wsdlLocation>
+                            <wsdlDirectory>${basedir}/src/wsdl</wsdlDirectory>
                             <staleFile>${project.build.directory}/jaxws/stale/ECMColleagueService.stale</staleFile>
                         </configuration>
                         <id>wsimport-generate-ECMColleagueService</id>
                         <phase>generate-sources</phase>
                     </execution>
                 </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>javax.xml</groupId>
-                        <artifactId>webservices-api</artifactId>
-                        <version>2.0</version>
-                    </dependency>
-                </dependencies>
                 <configuration>
-                    <sourceDestDir>${project.build.directory}/generated-sources/jaxws-wsimport</sourceDestDir>
+                    <sourceDestDir>${project.build.directory}/generated-sources/wsimport</sourceDestDir>
                     <xnocompile>true</xnocompile>
                     <verbose>true</verbose>
                     <extension>true</extension>
-                    <catalog>${basedir}/src/jax-ws-catalog.xml</catalog>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.sun.xml.ws</groupId>
+                        <artifactId>jaxws-tools</artifactId>
+                        <version>3.0.0-M2</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>

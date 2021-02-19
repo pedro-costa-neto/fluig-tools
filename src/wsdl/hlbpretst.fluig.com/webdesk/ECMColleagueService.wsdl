@@ -598,7 +598,7 @@
   </wsdl:binding>
   <wsdl:service name="ECMColleagueServiceService">
     <wsdl:port binding="tns:ECMColleagueServiceServiceSoapBinding" name="ColleagueServicePort">
-      <soap:address location="http://hlbpretst.fluig.com/webdesk/ECMColleagueService"/>
+      <soap:address location="https://hlbpretst.fluig.com/webdesk/ECMColleagueService"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
