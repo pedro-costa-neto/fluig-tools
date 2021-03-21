@@ -12,7 +12,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tvDados" layoutX="27.0" layoutY="34.0" prefHeight="297.0" prefWidth="590.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" />
+                        <TableView fx:id="tvDados" editable="true" layoutX="27.0" layoutY="34.0" prefHeight="297.0" prefWidth="590.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" />
                         <Button layoutX="497.0" layoutY="14.0" mnemonicParsing="false" onAction="#exportDatasetInCSVAction" text="Exportar CSV" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                      </children>
                   </AnchorPane>

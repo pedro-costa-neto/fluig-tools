@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
+import javafx.scene.control.*;
+import javafx.scene.control.cell.TextFieldTableCell;
 import org.apache.log4j.Logger;
 
 import com.totvs.technology.ecm.dataservice.ws.SearchConstraintDto;
@@ -34,12 +36,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -251,10 +247,13 @@ public class DatasetController implements Initializable {
 
                     return new SimpleStringProperty(value);
                 });
+                column.setCellFactory(TextFieldTableCell.forTableColumn());
                 columns.add(column);
             }
             tvDados.getColumns().setAll(columns);
             tvDados.setItems(datasetSimpleDto.getObservableItems());
+            //tvDados.getSelectionModel().setCellSelectionEnabled(true);
+            //tvDados.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         } catch (ExceptionDialog ex) {
             ex.showMessage();
