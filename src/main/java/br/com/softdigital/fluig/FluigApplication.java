@@ -20,22 +20,15 @@ import javafx.stage.Stage;
  */
 public class FluigApplication extends Application {
 
-    private final static Logger LOG = Logger.getLogger(FluigApplication.class);
-
-    public static void main(String[] args) {
-        LOG.info("Iniciando aplicacao");
-        launch(args);
-    }
-
     @Override
     public void start(Stage stage) throws Exception {
         Parent parent = FXMLLoader.load(FluigApplication.class.getResource("/layouts/FrmPrincipal.fxml"));
         
         Scene scene = new Scene(parent);
         stage.setScene(scene);
-        stage.setTitle("Fluig - Pincipal");
+        stage.setTitle("Fluig Tools - Pincipal");
         stage.setResizable(false);
-        stage.initStyle(StageStyle.UTILITY);
+        //stage.initStyle(StageStyle.UTILITY);
         stage.getIcons().add(new Image("/images/fluig-icon-brand.png"));
         stage.show();
     }

@@ -133,8 +133,7 @@ public class PrincipalController implements Initializable {
             Scene scene = new Scene(parent);
 
             Stage stage = new Stage();
-            stage.setResizable(false);
-            stage.setTitle("Dataset");
+            stage.setTitle("Consultar datasets");
             stage.getIcons().add(new Image("/images/fluig-icon-brand.png"));
             stage.setScene(scene);
             stage.show();

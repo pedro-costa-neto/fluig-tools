@@ -102,13 +102,36 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>br.com.softdigital.fluig.FluigApplication</mainClass>
+                            <mainClass>br.com.softdigital.fluig.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>package</phase> <!-- bind to the packaging phase -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>br.com.softdigital.fluig.Main</mainClass>
+                                </manifest>
+                                <manifestEntries>
+                                    <!-- This fixed the CatalogManager exception problem -->
+                                    <Multi-Release>true</Multi-Release>
+                                </manifestEntries>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>com.sun.xml.ws</groupId>
