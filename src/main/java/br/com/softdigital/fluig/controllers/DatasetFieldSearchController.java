@@ -81,7 +81,7 @@ public class DatasetFieldSearchController implements Initializable {
             List<String> datasetFields = new ArrayList<>();
 
             for (String datasetName : fields) {
-                if (datasetName.contains(value)) {
+                if (datasetName.toUpperCase().contains(value.toUpperCase())) {
                     datasetFields.add(datasetName);
                 }
             }

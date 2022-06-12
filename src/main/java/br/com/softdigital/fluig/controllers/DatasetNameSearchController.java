@@ -81,7 +81,7 @@ public class DatasetNameSearchController implements Initializable {
             List<Object> datasetsName = new ArrayList<>();
 
             for (Object datasetName : datasetNameAux) {
-                if (datasetName.toString().contains(value)) {
+                if (datasetName.toString().toUpperCase().contains(value.toUpperCase())) {
                     datasetsName.add(datasetName);
                 }
             }
